@@ -22,6 +22,7 @@ export const fetchData = createAsyncThunk('dataSlice/fetchData', async ({query, 
           'X-RapidAPI-Host': 'youtube-search-results.p.rapidapi.com'
         }
       };
+
       const response = await axios.request(options)
     return( {videos : response.data.items, videoType:type})
 })
@@ -58,7 +59,7 @@ const dataSlice = createSlice({
       },
       [fetchData.rejected] : (state, action)=>{
         state.loading = false 
-         alert('API call limit for today has been reached. Please try again tomorrow.')
+         alert('API call limit for today has been reached. Please try again tomorrow!')
       }
     }
  })
