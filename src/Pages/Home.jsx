@@ -7,18 +7,19 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchData } from '../Redux/DataReducer'
 
 function Home() {
-  const {data ,loading} = useSelector(state=>state.dataReducer)
+  const {data ,loading, showSideBar} = useSelector(state=>state.dataReducer)
   
-  // const dispatch = useDispatch()
-  // useEffect(()=>{
-  //  dispatch( fetchData('malayalam') )
-  // }, [])
-
+  const dispatch = useDispatch()
+  useEffect(()=>{
+   dispatch( fetchData('malayalam') )
+  }, [])
   return (
     <>
       <Header></Header>
       <div className=' w-100 row p-0 me-0'style={{marginTop:'70px', marginLeft:'0px'}}>
-          <div className=' d-none d-xl-block col-xl-2 position-fixed start-0 '>
+      {/* <div className=' d-none d-xl-block col-xl-2 position-fixed start-0 '> */}
+
+          <div className= {` col-xl-2 position-fixed start-0 side-bar ${showSideBar && 'side-bar-active'} `}> {/* class name in index.css */}
             <HomeLeft></HomeLeft>
             
           </div>

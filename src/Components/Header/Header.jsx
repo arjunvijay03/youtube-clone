@@ -2,7 +2,7 @@ import React from 'react'
 import * as Icon from 'react-bootstrap-icons';
 import  logo from '../../assets/youtube-logo-png-46020.png'
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchData, handelQueryChange } from '../../Redux/DataReducer';
+import { changeShowSideBar, fetchData, handelQueryChange } from '../../Redux/DataReducer';
 import { useNavigate } from 'react-router-dom';
 function Header() {
   const dispatch = useDispatch()
@@ -19,7 +19,7 @@ function Header() {
   return (
     <>
         <div className=' position-fixed z-3 top-0 w-100 bg-youtube px-2 px-lg-4 d-flex align-items-center justify-content-between' style={{height:'60px',zIndex:'10'}} >
-            <div>
+            <div onClick={()=>dispatch(changeShowSideBar())}>
                 <Icon.List color='white' size={25}/>
                 <img width={110} src={logo} className='ms-3' alt="logo" />
             </div>

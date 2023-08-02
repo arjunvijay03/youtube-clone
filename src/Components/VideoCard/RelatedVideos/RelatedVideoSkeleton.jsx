@@ -4,7 +4,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 function RelatedVideoSkelton() {
   return (
     <>
-    <div className=' ' style={{height:'150px'}} >
+    <div className=' ' style={{height:'100px'}} >
        <div className=" row d-flex align-items-center  h-100 bg-transparent text-light overflow-hidden"  >
             
             <div className='col-5  h-100 rounded-3 overflow-hidden'  >

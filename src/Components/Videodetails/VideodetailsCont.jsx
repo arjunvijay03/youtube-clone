@@ -10,16 +10,12 @@ function VideodetailsCont({id}) {
   const { data, relatedVideos, loading, allVideos } = useSelector(state => state.dataReducer)
   const [ currentVideo , setCurrentVideo ] = useState(null)
   const dispatch = useDispatch()
-
   useEffect(()=>{
     window.scrollTo(0, 0)
     let video = allVideos?.find(x=>x.id === id) 
     setCurrentVideo( video )
     dispatch(fetchData({query:video?.title ,type: 'related'}))
-    console.log(id);
-    console.log(video);
   },[ data, id ])
-  console.log(currentVideo?.title);
   return (
     <div className='container-fluid   p-xl-5 mt-xl-0' style={{marginTop:'60px'}}>
       <div className="row  mt-5">
@@ -32,9 +28,9 @@ function VideodetailsCont({id}) {
                <div className="w-100 row h-25 d-flex ">
                 <div className="px-3 p-0 d-flex w-100 align-items-center gap-3 ">
                   <div className=" rounded-circle mt-2 ms-1 object-fit-contain overflow-hidden" style={{width:'50px', height:'50px'}}>
-                   {loading?<Skeleton className='h-100' baseColor="#202020" highlightColor="#444"></Skeleton> : <img className='w-100' src={currentVideo?.author?.avatars[0]?.url} alt="" /> }
+                   {loading?<Skeleton className='h-100' baseColor="#202020" highlightColor="#444"></Skeleton> : <img className='w-100' src={currentVideo?.channel?.icon} alt="" /> }
                   </div>
-                  <h6 className='text-white  m-0 fs-4 ' style={{lineHeight:'1.3rem'}}>{currentVideo?.author.name || <Skeleton className='h-100' baseColor="#202020" highlightColor="#444"></Skeleton>}   <br/>
+                  <h6 className='text-white  m-0 fs-6 ' style={{lineHeight:'1.3rem'}}>{currentVideo?.channel.name || <Skeleton className='h-100' baseColor="#202020" highlightColor="#444"></Skeleton>}   <br/>
                    <span className='text-white-50 ' style={{fontSize:'15px'}}> 100k subscribers</span>
                    </h6>
                 </div>

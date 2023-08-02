@@ -48,7 +48,21 @@ body{
       margin-left: 200px !important;
     }
   }
-
+@media (max-width:577px) {
+  .side-bar{
+    transform: translateX(-100%);
+    background-color:  hsl(0, 0%, 7%);
+    z-index: 10;
+    width: 75vw;
+    transition: .3s;
+    height: calc(100dvh - 58px);
+    top: 60px;
+  }
+  .side-bar-active{
+    transform: translateX(0);
+  }
+  
+}
   .video-title{
     display: -webkit-box;
     -webkit-box-orient: vertical;
