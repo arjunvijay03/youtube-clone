@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { memo } from 'react'
 import * as Icon from 'react-bootstrap-icons';
 import  logo from '../../assets/youtube-logo-png-46020.png'
 import { useDispatch, useSelector } from 'react-redux';
-import { changeShowSideBar, fetchData, handelQueryChange } from '../../Redux/DataReducer';
+import { changeShowSideBar, handelQueryChange } from '../../Redux/DataReducer';
 import { useNavigate } from 'react-router-dom';
+import { useGetDataQuery } from '../../API/FetchData';
 function Header() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -13,15 +14,15 @@ function Header() {
   }
   const handleSubmit = (event)=>{
     event.preventDefault()
-    dispatch(fetchData({query, type:'search'}))
-    navigate('/searchresults')
+    if (!query) return
+    navigate(`/searchresults/${query}`)
   }
   return (
     <>
         <div className=' position-fixed z-3 top-0 w-100 bg-youtube px-2 px-lg-4 d-flex align-items-center justify-content-between' style={{height:'60px',zIndex:'10'}} >
-            <div onClick={()=>dispatch(changeShowSideBar())}>
-                <Icon.List color='white' size={25}/>
-                <img width={110} src={logo} className='ms-3' alt="logo" />
+            <div >
+                <Icon.List color='white' size={25} onClick={()=>dispatch(changeShowSideBar())}/>
+                <img width={110} src={logo} className='ms-3' alt="logo" onClick={()=>navigate('/')} />
             </div>
             <div className='d-flex justify-content-center align-items-center w-50 d-none d-sm-flex'>
               <form onSubmit={(event=>handleSubmit(event))} className='rounded-pill overflow-hidden  d-flex align-items-center w-75 ' style={{border:'2px solid hsl(0, 0%, 18.82%)'}}>
@@ -53,4 +54,4 @@ function Header() {
   )
 }
 
-export default Header
+export default memo(Header) 

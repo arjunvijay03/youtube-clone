@@ -7,7 +7,7 @@ function RelatedVideoCard({video}) {
   return (
     <>
     {/* <div onClick={()=>navigate(`/video/${video?.id}`)} className=' ' > */}
-       <div onClick={()=>navigate(`/video/${video?.id}`)} className=" row d-flex   bg-transparent text-light overflow-hidden"  >
+       <div onClick={()=>navigate(`/video/${video?.id}`)} className=" row d-flex   bg-transparent text-light overflow-hidden" role='button'  >
             
             <div className='col-5  rounded-3 overflow-hidden'  >
               <img className='w-100'  src={video?.thumbnail.url} alt="" />

@@ -48,7 +48,8 @@ body{
       margin-left: 200px !important;
     }
   }
-@media (max-width:577px) {
+ 
+@media (max-width:900px) {
   .side-bar{
     transform: translateX(-100%);
     background-color:  hsl(0, 0%, 7%);
@@ -62,6 +63,12 @@ body{
     transform: translateX(0);
   }
   
+}
+@media   (max-width:900px ) and (min-width:500px) {
+  .side-bar{
+    width: 50vw;
+  }
+
 }
   .video-title{
     display: -webkit-box;
