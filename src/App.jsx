@@ -4,18 +4,26 @@ import Home from './Pages/Home'
 import VideoDetailsPage from './Pages/VideoDetailsPage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchData } from './Redux/DataReducer';
+import { setAllVideos } from './Redux/DataReducer';
 import SearchResultPage from './Pages/SearchResultPage';
 import SearchPage from './Pages/SearchPage';
+import { useGetDataQuery } from './API/FetchData';
+import TrendingsPage from './Pages/TrendingsPage';
+import  MusicPage from './Pages/MusicPage'
+import GamingPage from './Pages/GamingPage';
 function App() {
+  
+  
   const dispatch = useDispatch()
-  
-  const {data ,loading} = useSelector(state=>state.dataReducer)
+   const {allVideos} = useSelector(state=>state.dataReducer)
   useEffect(()=>{
-   dispatch( fetchData({query:'malayalam', type:'feed'}) )
+    const videos = JSON.parse(sessionStorage.getItem('allvideos')  ) || []
+    // console.log(videos);
+    dispatch(setAllVideos(videos))
+   
+    
+ 
   }, [])
-
-  
 
 
   return (
@@ -24,7 +32,10 @@ function App() {
       <Routes>
         <Route exact path='/' element={<Home/>}/>
         <Route path='/video/:id' element={<VideoDetailsPage/>}/>
-        <Route path='/searchresults' element={<SearchResultPage/>}/>
+        <Route path='/feed/trending' element={<TrendingsPage/>}/>
+        <Route path='/feed/music' element={<MusicPage/>}/>
+        <Route path='/feed/gaming' element={<GamingPage/>}/>
+        <Route path='/searchresults/:query' element={<SearchResultPage/>}/>
         <Route path='/search' element={<SearchPage/>}/>
       </Routes>
     </Router>

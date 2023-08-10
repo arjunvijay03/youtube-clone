@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import * as Icon from 'react-bootstrap-icons';
-import { fetchData, handelQueryChange } from '../Redux/DataReducer';
+import {  handelQueryChange } from '../Redux/DataReducer';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
@@ -14,8 +14,7 @@ function SearchPage() {
     }
     const handleSubmit = (event)=>{
       event.preventDefault()
-      dispatch(fetchData({query, type:'search'}))
-      navigate('/searchresults')
+      navigate(`/searchresults/${query}`)
     }
   return (
     <>

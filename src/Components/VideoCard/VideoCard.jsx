@@ -5,7 +5,7 @@ function VideoCard({video}) {
   const videoRef = useRef()
   const navigate = useNavigate()
  return (
-    <div onClick={()=>navigate(`/video/${video.id}`)} className=' col-xl-4 col-md-6 p-0 d-flex justify-content-center  p-md-4' >
+    <div onClick={()=>navigate(`/video/${video.id}`)} className=' col-xl-4 col-md-6 p-0 d-flex justify-content-center  p-md-4' role='button' >
       <div className=" card position-relative w-100 bg-transparent text-light overflow-hidden" style={{zIndex:'0'}}  >
             {/* <img class="card-img-top" src="..." alt="Card image cap"/> */}
             <div className='w-100 ratio ratio-16x9 rounded-3 overflow-hidden '  >
