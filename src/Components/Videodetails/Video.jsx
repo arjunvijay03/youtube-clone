@@ -1,5 +1,5 @@
-import React from "react";
-import ReactPlayer from "react-player";
+import React from 'react';
+import ReactPlayer from 'react-player';
 function Video({ id }) {
   return (
     <div className="w-100 h-100">
@@ -8,7 +8,7 @@ function Video({ id }) {
         controls
         width="100%"
         height="100%"
-        style={{ backgroundColor: "#000000" }}
+        style={{ backgroundColor: '#000000' }}
         playing={true}
       />
     </div>

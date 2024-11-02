@@ -1,10 +1,10 @@
-import React from "react";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
+import React from 'react';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 function RelatedVideoSkelton() {
   return (
     <>
-      <div className=" " style={{ height: "100px" }}>
+      <div className=" " style={{ height: '100px' }}>
         <div className=" row d-flex align-items-center  h-100 bg-transparent text-light overflow-hidden">
           <div className="col-5  h-100 rounded-3 overflow-hidden">
             <Skeleton
@@ -33,7 +33,7 @@ function RelatedVideoSkelton() {
                 className="h-100"
                 baseColor="#202020"
                 highlightColor="#444"
-              ></Skeleton>{" "}
+              ></Skeleton>{' '}
             </div>
           </div>
         </div>

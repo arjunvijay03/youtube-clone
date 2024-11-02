@@ -1,15 +1,15 @@
-import React from "react";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
+import React from 'react';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 function VideoCardSkeleton() {
   return (
     <div
       className="col-xl-4 col-md-6 p-0 d-flex justify-content-center  p-md-4"
-      style={{ height: "320px" }}
+      style={{ height: '320px' }}
     >
       <div
         className=" card position-relative w-100 bg-transparent text-light overflow-hidden"
-        style={{ zIndex: "0" }}
+        style={{ zIndex: '0' }}
       >
         <div className="w-100 ratio ratio-16x9 rounded-3 overflow-hidden ">
           <Skeleton
@@ -23,7 +23,7 @@ function VideoCardSkeleton() {
             <div>
               <Skeleton
                 className="rounded-circle mt-2 ms-1 "
-                style={{ width: "40px", height: "40px" }}
+                style={{ width: '40px', height: '40px' }}
                 baseColor="#202020"
                 highlightColor="#444"
               ></Skeleton>

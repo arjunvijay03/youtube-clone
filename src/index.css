@@ -47,7 +47,7 @@ body {
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .side-bar {
     transform: translateX(-100%);
     background-color: hsl(0, 0%, 7%);
@@ -61,7 +61,7 @@ body {
     transform: translateX(0);
   }
 }
-@media (max-width: 900px) and (min-width: 500px) {
+@media (max-width: 1024px) and (min-width: 500px) {
   .side-bar {
     width: 50vw;
   }
